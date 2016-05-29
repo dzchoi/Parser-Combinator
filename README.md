@@ -1,6 +1,4 @@
-# Parser-Combinator
-A Parser Combinator in C++
-
+## A Parser Combinator in C++
 - A parser is a functor(mapping) of an istream to a parse tree; it is working on istream rather than the lower-level streambuf for directly referencing and manipulating the failbit and the eofbit.  
 - Like Parsec in Haskell, there are two kinds of failures:  
   - "weak failure" or "failure but consume nothing", if a parser is failed at the very first character, the parser does not throw an exception but returns a default value (like nullptr) instead, with making the istream failed and not consuming the first character.  
@@ -34,6 +32,7 @@ A Parser Combinator in C++
   - "Tips and tricks for using C++ I/O (input/output)",  
     http://www.augustcouncil.com/~tgibson/tutorial/iotips.html  
 
+## Parsers in this library
 - character parsers:  
   - `chr('c')`  
   - `any_chr()`       - /./  
