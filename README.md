@@ -32,7 +32,7 @@
   - "Tips and tricks for using C++ I/O (input/output)",  
     http://www.augustcouncil.com/~tgibson/tutorial/iotips.html  
 
-## Parsers in this library
+## Parsers provided in this library
 - character parsers:  
   - `chr('c')`  
   - `any_chr()`       - /./  
