@@ -1,11 +1,13 @@
 ## A Parser Combinator in C++
-- A parser is a functor(mapping) of an istream to a parse tree; it is working on istream rather than the lower-level streambuf for directly referencing and manipulating the failbit and the eofbit.  
+- In functional programming, parser combinators can be used to combine basic parsers to construct parsers for more complex rules. For example, a production rule of a context-free grammar (CFG) may have one or more alternatives and each alternative may consist of a sequence of non-terminal(s) and/or terminal(s), or the alternative may consist of a single non-terminal or terminal or the empty string. If a simple parser is available for each of these alternatives, a parser combinator can be used to combine each of these parsers, returning a new parser which can recognise any or all of the alternatives.
+- A parser combinator can take the form of an infix operator, used to glue different parsers to form a complete rule. Parser combinators thereby enable parsers to be defined in an embedded style, in code which is similar in structure to the rules of the grammar. As such, implementations can be thought of as executable specifications with all the associated advantages.
+- Here, a parser is defined as a C++ functor (mapping) of an istream to a parse tree; it is working on `istream` rather than the lower-level `streambuf` for directly referencing and manipulating the `failbit` and the `eofbit`.  
 - Like Parsec in Haskell, there are two kinds of failures:  
   - "weak failure" or "failure but consume nothing", if a parser is failed at the very first character, the parser does not throw an exception but returns a default value (like nullptr) instead, with making the istream failed and not consuming the first character.  
   - "error failure", if a parser is failed at the second or later character, the parser throws an exception whether or not the first character was matched and consumed.  
   - this differentiation helps to write a (sub-)parser for LL(1) without try_().  
 
-- references:  
+- References:  
   - "An Introduction to the Parsec Library",  
     https://kunigami.wordpress.com/2014/01/21/an-introduction-to-the-parsec-library/  
   - "jneen/parsimmon", https://github.com/jneen/parsimmon  
